@@ -1,11 +1,10 @@
-import Vue from 'vue'
 import { roles } from '~/constants/config/base/auth'
-// v-auth can't work as v-if, use <auth> wrapper component instead
-// Use v-auth with "allow" argument
-// <div v-auth:allow.active="['ADMIN', 'SOMETHING']" />
-// <div v-auth:allow.visible="['ADMIN', 'SOMETHING']" />
-// <div v-auth:allow.inner="['ADMIN', 'SOMETHING']" />
-Vue.directive('auth', {
+export default {
+  // v-auth can work like v-if, but you can use <auth> wrapper component instead
+  // Use v-auth with "allow" or "forbid" argument
+  // <div v-auth:allow.active="['ADMIN', 'SOMETHING']" />
+  // <div v-auth:allow.visible="['ADMIN', 'SOMETHING']" />
+  // <div v-auth:allow="['ADMIN', 'SOMETHING']" />
   bind(el, binding, vnode, oldVnode) {
     // Only throw in dev mode
     if (process.env.NODE_ENV === 'development') {
@@ -36,25 +35,36 @@ Vue.directive('auth', {
         }
       })
     }
-    // Detect if using 'allow' or 'forbid'
+  },
+  inserted(el, binding, vnode) {
+    const hasPermission = binding.value.includes(
+      vnode.context.$store.state.auth.data?.role
+    )
     const allow = binding.arg === 'allow'
-    if (!binding.value.includes(vnode.context.$store.state.auth.data?.role)) {
-      // disabled modifier
-      el.disabled = binding.modifiers.active & allow
-      if (binding.modifiers.active & allow) {
+    if (allow) {
+      if (!hasPermission) {
+        // Detect if using 'allow' or 'forbid'
+        if (binding.modifiers.active) {
+          el.disabled = binding.modifiers.active
+          el.classList.add('cursor-not-allowed')
+          el.classList.add('opacity-50')
+        } else if (binding.modifiers.visible) {
+          el.classList.add('hidden')
+        } else {
+          el.parentNode && el.parentNode.removeChild(el)
+        }
+      }
+    } else if (hasPermission) {
+      // Detect if using 'allow' or 'forbid'
+      if (binding.modifiers.active) {
+        el.disabled = binding.modifiers.active
         el.classList.add('cursor-not-allowed')
         el.classList.add('opacity-50')
-      }
-      // visible modifier
-      if (binding.modifiers.visible & allow) {
+      } else if (binding.modifiers.visible) {
         el.classList.add('hidden')
+      } else {
+        el.parentNode && el.parentNode.removeChild(el)
       }
-      // inner modifier
-      el.innerHTML = binding.modifiers.inner & allow ? null : el.innerHTML
     }
   },
-  inserted(el, binding, vnode, oldVnode) {},
-  update(el, binding, vnode, oldVnode) {},
-  componentUpdated(el, binding, vnode, oldVnode) {},
-  unbind(el, binding, vnode, oldVnode) {},
-})
+}
