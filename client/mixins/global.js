@@ -1,5 +1,5 @@
 import Vue from 'vue'
-export default Vue.mixin({
+const globalMixin = Vue.mixin({
   data() {
     return {
       mixinMessage: 'Hello from mixin',
@@ -13,3 +13,4 @@ export default Vue.mixin({
     // Add more global helpers here
   },
 })
+export { globalMixin }

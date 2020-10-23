@@ -1,18 +1,13 @@
 import { authMutations } from '~/constants/vuex/auth'
-const cookieparser = process.server ? require('cookieparser') : undefined
+import { rootMutations } from '~/constants/vuex/root'
 export default {
   // This will run first when nuxt app init
-  nuxtServerInit({ commit }, { req }) {
+  // Called manually in middleware in SPA mode
+  async nuxtServerInit({ commit }) {
     let auth = null
-    // Since we don't have localStorage in server side, we gotta use cookie instead
-    if (req.headers.cookie) {
-      const parsed = cookieparser.parse(req.headers.cookie)
-      try {
-        auth = JSON.parse(parsed.auth)
-      } catch (err) {
-        // No valid cookie found
-      }
-    }
+    const authString = localStorage.getItem('auth')
+    auth = await JSON.parse(authString)
     commit(authMutations.SET.AUTH, auth)
+    commit(rootMutations.SET.SERVER_STATE, true) // Server is ready
   },
 }

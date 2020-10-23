@@ -6,7 +6,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-mode
    */
   // mode: 'universal', // Deprecated
-  ssr: true,
+  ssr: false,
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -178,25 +178,8 @@ export default {
   },
   router: {
     // base: '.'
-    middleware: []
+    middleware: ['nuxtServerInit']
   },
-  generate: {
-    /*
-     ** Declare specific routes for static generator
-     */
-    // routes: [
-    //   '/'
-    // ]
-    /*
-     ** Or dynamic routes
-     */
-    // routes () {
-    //   return axios.get('https://my-api/users')
-    //     .then((res) => {
-    //       return res.data.map((user) => {
-    //         return '/users/' + user.id
-    //       })
-    //     })
-    // }
-  }
+  // For ssr only, so please use own ssr boilerplate instead: https://github.com/thecodeorigin/nuxt-element-tailwind
+  generate: {}
 }
