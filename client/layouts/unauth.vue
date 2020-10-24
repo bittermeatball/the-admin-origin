@@ -9,8 +9,6 @@
 import { Navbar } from '~/components/common/Layout'
 export default {
   name: 'Default',
-  // Back to home if you've already been authenticated
-  middleware: 'authNotRequired',
   components: {
     Navbar,
   },

@@ -53,6 +53,13 @@ import { authActions } from '~/constants/vuex/auth'
 import { ExampleComponent } from '~/components/uncommon/Home'
 export default {
   name: 'Home',
+  meta: {
+    config: {
+      auth: false,
+      permission: ['ALL'],
+    },
+  },
+  middleware: ['auth'],
   components: {
     ExampleComponent,
   },

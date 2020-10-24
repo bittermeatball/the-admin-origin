@@ -19,9 +19,13 @@
   </el-main>
 </template>
 <script>
+import { config } from './config'
 import { authActions } from '~/constants/vuex/auth'
 export default {
-  middleware: 'authRequired',
+  meta: {
+    config,
+  },
+  middleware: ['auth'],
   methods: {
     async logout() {
       await this.$store.dispatch(authActions.LOGOUT)

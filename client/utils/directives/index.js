@@ -1,9 +1,13 @@
 import Vue from 'vue'
 
-const requireModule = require.context('./modules', false, /\.js$/)
+const requireModule = require.context('./', true, /\.js$/)
+requireModule.keys().forEach(requireModule)
 requireModule.keys().forEach((fileName) => {
-  const moduleName = fileName.replace(/(\.\/|\.js)/g, '')
-  Vue.directive(moduleName, requireModule(fileName))
+  if (!fileName.includes('index.js')) {
+    const temp = fileName.replace(/(\.\/|\.js)/g, '').split('/')
+    const moduleName = temp.length > 1 ? temp[temp.length - 1] : temp[0]
+    Vue.directive(moduleName, requireModule(fileName).default)
+  }
 })
 
 // Vue.directive('something', {

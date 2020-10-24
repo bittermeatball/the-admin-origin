@@ -1,3 +1,0 @@
-# For single-file-component separation concern
-client/pages/**/script.js
-client/pages/**/config.js

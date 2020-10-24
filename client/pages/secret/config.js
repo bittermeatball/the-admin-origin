@@ -1,3 +1,4 @@
-export default {
-  permission: ['ADMIN', 'MODERATOR'],
+export const config = {
+  auth: true,
+  permission: ['ADMIN'],
 }
