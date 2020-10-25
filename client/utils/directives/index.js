@@ -10,10 +10,12 @@ requireModule.keys().forEach((fileName) => {
   }
 })
 
+// Docs: https://vuejs.org/v2/guide/custom-directive.html
+// Use with v-something
 // Vue.directive('something', {
-//   bind(el, binding, vnode, oldVnode) {},
-//   inserted(el, binding, vnode, oldVnode) {},
-//   update(el, binding, vnode, oldVnode) {},
-//   componentUpdated(el, binding, vnode, oldVnode) {},
-//   unbind(el, binding, vnode, oldVnode) {},
+//   bind(el, binding, vnode, oldVnode) {}, // Called once, when the directive is first bound to the element.
+//   inserted(el, binding, vnode, oldVnode) {}, // Has parent node here.
+//   update(el, binding, vnode, oldVnode) {}, // Remember to compare the binding’s current and old values to avoid unnecessary updates.
+//   componentUpdated(el, binding, vnode, oldVnode) {}, // Called after the containing component’s VNode and the VNodes of its children have updated.
+//   unbind(el, binding, vnode, oldVnode) {}, // When component destroyed (when the directive is unbound from the element).
 // })
