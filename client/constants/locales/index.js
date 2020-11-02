@@ -1,19 +1,18 @@
-const enModule = require.context('./', true, /en.js/)
-enModule.keys().forEach(enModule)
 const en = {}
-enModule.keys().forEach((fileName) => {
-  const temp = fileName.replace(/(\.\/|\.js)/g, '').split('/')
-  const moduleName = temp.length > 1 ? temp[temp.length - 2] : temp[0]
-  en[moduleName] = enModule(fileName).default
-})
-
-const viModule = require.context('./', true, /vi.js/)
-viModule.keys().forEach(viModule)
 const vi = {}
-viModule.keys().forEach((fileName) => {
-  const temp = fileName.replace(/(\.\/|\.js)/g, '').split('/')
-  const moduleName = temp.length > 1 ? temp[temp.length - 2] : temp[0]
-  vi[moduleName] = viModule(fileName).default
+
+const requireModule = require.context('./', true, /\.js$/)
+requireModule.keys().forEach(requireModule)
+requireModule.keys().forEach((fileName) => {
+  if (!fileName.includes('index.js')) {
+    const temp = fileName.replace(/(\.\/|\.js)/g, '').split('/')
+    const moduleName = temp.length > 1 ? temp[temp.length - 2] : temp[0]
+    if (fileName.includes('en.js')) {
+      en[moduleName] = requireModule(fileName).default
+    } else if (fileName.includes('vi.js')) {
+      vi[moduleName] = requireModule(fileName).default
+    }
+  }
 })
 
 export default { en, vi }
