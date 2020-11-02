@@ -92,10 +92,11 @@ export default {
     '~/plugins/i18n.js',
     '~/plugins/vee-validate.js',
     // Utilities
-    '~/utils/directives', // Vue directives
-    '~/utils/filters', // Filters for custom text formating
-    '~/utils/global-components', // Global components
-    '~/utils/bus.js', // Event bus
+    '~/utils/index.js',
+    // '~/utils/directives', // Vue directives
+    // '~/utils/filters', // Filters for custom text formating
+    // '~/utils/global-components', // Global components
+    // '~/utils/bus.js', // Event bus
   ],
   /*
    ** Auto import components
