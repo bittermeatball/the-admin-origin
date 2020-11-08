@@ -22,10 +22,14 @@ export default function ({ $axios, app, store }, inject) {
         if (process.env.NODE_ENV === 'development') {
           Message('DevOnly | File deleting API executed')
         }
-        return $axios.delete(url, {
+        // $axios.delete ignores data body, so use axios.request instead
+        // In @nuxt/axios, use $axios.$request
+        return $axios.$request({
           headers: {
             Authorization: store.state.auth.data.token,
           },
+          method: 'delete',
+          url,
           data: body,
         })
       } catch (error) {
