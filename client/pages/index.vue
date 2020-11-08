@@ -49,15 +49,13 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+import { config } from './config'
 import { authActions } from '~/constants/vuex/auth'
 import { ExampleComponent } from '~/components/uncommon/Home'
 export default {
   name: 'Home',
   meta: {
-    config: {
-      auth: false,
-      permission: ['ALL'],
-    },
+    config,
   },
   middleware: ['auth'],
   components: {

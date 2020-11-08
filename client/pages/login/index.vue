@@ -37,14 +37,13 @@
 </template>
 
 <script>
+import { config } from './config'
 import { authActions } from '~/constants/vuex/auth'
 import { FormWrapper, InputWrapper } from '~/components/common/Templates/Form'
 export default {
   layout: 'unauth',
   meta: {
-    config: {
-      authNotRequired: true,
-    },
+    config,
   },
   middleware: 'auth',
   components: {
