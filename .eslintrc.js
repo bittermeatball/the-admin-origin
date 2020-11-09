@@ -2,10 +2,10 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: 'babel-eslint',
   },
   extends: [
     '@nuxtjs',
@@ -21,10 +21,21 @@ module.exports = {
   // add your custom rules here
   rules: {
     semi: [2, 'never'],
-    'no-console': 'off',
+    'no-console': 'warn',
     'vue/max-attributes-per-line': 'off',
     'vue/html-self-closing': 'off',
     'vue/no-v-html': 'off',
+    'vue/html-indent': [
+      'error',
+      2,
+      {
+        attribute: 1,
+        baseIndent: 1,
+        closeBracket: 0,
+        alignAttributesVertically: true,
+        ignores: [],
+      },
+    ],
     'prettier/prettier': ['error', { semi: false }],
-  }
+  },
 }
