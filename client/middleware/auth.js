@@ -1,16 +1,15 @@
 // Read pages configuration
 // You can pass variables to middleware through meta
-// This middleware support the meta config below:
-/*
-  meta: {
-    config: {
-      authNotRequired: Boolean,
-      auth: Boolean,
-      permission: Array,
-    }
-  }
-*/
 import { roles } from '~/constants/config/base/auth'
+/**
+ * Authentication and authorization middleware
+ * @param {Object} context The first parameter by default in nuxt middleware
+ * @param {Object} context.route
+ * @param {[{config: {authNotRequired: Boolean, auth: Boolean, permission: Array}}]} context.route.meta
+ * @param {Object} context.store
+ * @param {Function} context.redirect
+ * @returns {void} Return nothing
+ */
 export default function ({ route, store, redirect }) {
   const config = route?.meta[0]?.config
   const auth = store.state.auth?.data

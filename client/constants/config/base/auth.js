@@ -1,3 +1,4 @@
 // Roles collection
 const roles = ['SUPERADMIN', 'ADMIN', 'EDITOR', 'ALL']
-export { roles }
+const ADMIN = ['SUPERADMIN', 'ADMIN']
+export { roles, ADMIN }

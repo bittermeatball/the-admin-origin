@@ -1,5 +1,13 @@
 import { authMutations } from '~/constants/vuex/auth'
 export default {
+  /**
+   * Login action
+   * @param {Object} context Vuex default action's first parameter
+   * @param {Object} form Get from login form
+   * @param {String} form.email
+   * @param {String} form.password
+   * @returns {void} Return nothing
+   */
   login({ commit }, form) {
     let auth = null
     // Faking auth data
@@ -11,6 +19,11 @@ export default {
     localStorage.setItem('auth', JSON.stringify(auth))
     commit(authMutations.SET.AUTH, auth, { root: true }) // Mutating to store for client rendering
   },
+  /**
+   * Logout action
+   * @param {Object} context Vuex default action's first parameter
+   * @returns {void} Return nothing
+   */
   logout({ commit }) {
     localStorage.removeItem('auth')
     commit(authMutations.SET.AUTH, null, { root: true })
