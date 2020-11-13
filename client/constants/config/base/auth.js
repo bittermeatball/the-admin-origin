@@ -1,4 +1,36 @@
-// Roles collection
-const roles = ['SUPERADMIN', 'ADMIN', 'EDITOR', 'ALL']
-const ADMIN = ['SUPERADMIN', 'ADMIN']
-export { roles, ADMIN }
+/**
+ * Collection of available roles
+ *
+ * You must use these roles for your <auth> wrapper or v-auth directive
+ * @readonly Do not modify
+ */
+const roles = ['SUPERADMIN', 'ADMIN', 'COLABORATOR', 'EDITOR', 'ALL']
+/**
+ * SUPERADMIN permission
+ * @readonly Do not modify
+ */
+const SUPERADMIN = ['SUPERADMIN']
+/**
+ * ADMIN permission
+ * @readonly Do not modify
+ */
+const ADMIN = ['ADMIN']
+/**
+ * EDITOR permission
+ * @readonly Do not modify
+ */
+const EDITOR = ['EDITOR']
+/**
+ * COLABORATOR permission
+ *
+ * Including EDITOR permission
+ * @readonly Do not modify
+ */
+const COLABORATOR = ['COLABORATOR', 'EDITOR']
+/**
+ * Normal user permission
+ * @readonly Do not modify
+ */
+const ALL = ['ALL']
+
+export { roles, SUPERADMIN, ADMIN, COLABORATOR, EDITOR, ALL }

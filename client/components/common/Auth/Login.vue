@@ -22,7 +22,7 @@
   </DialogWrapper>
 </template>
 <script>
-import { authActions } from '~/constants/vuex/auth'
+import { authActions } from '~/store/auth/actions'
 export default {
   components: {
     // Just an example for dynamically import

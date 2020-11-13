@@ -1,4 +1,7 @@
 import { roles } from '~/constants/config/base/auth'
+/**
+ * Hello
+ */
 export default {
   // v-auth can work like v-if, but you can use <auth> wrapper component instead
   // Use v-auth with "allow" or "forbid" argument

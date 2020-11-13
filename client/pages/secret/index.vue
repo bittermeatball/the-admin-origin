@@ -20,7 +20,7 @@
 </template>
 <script>
 import { config } from './config'
-import { authActions } from '~/constants/vuex/auth'
+import { authActions } from '~/store/auth/actions'
 export default {
   meta: {
     config,

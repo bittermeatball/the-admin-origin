@@ -1,4 +1,13 @@
-import { authMutations } from '~/constants/vuex/auth'
+import { authMutations } from './mutations'
+
+/**
+ * Auth action module's enum
+ */
+export const authActions = {
+  LOGIN: 'auth/login',
+  LOGOUT: 'auth/logout',
+}
+
 export default {
   /**
    * Login action

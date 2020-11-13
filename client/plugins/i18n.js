@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import { rootMutations } from '~/constants/vuex/root'
+import { rootMutations } from '~/store/mutations'
 
 Vue.use(VueI18n)
 
@@ -17,6 +17,11 @@ export default ({ app, store, query }, inject) => {
     },
   })
 
+  /**
+   *
+   * @param {'en'|'vi'} locale
+   * @returns {void} Return nothing
+   */
   const changeLocale = (locale) => {
     // Set locale in i18n
     app.i18n.locale = locale

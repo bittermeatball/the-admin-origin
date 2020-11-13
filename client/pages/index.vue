@@ -50,7 +50,7 @@
 <script>
 import { mapState } from 'vuex'
 import { config } from './config'
-import { authActions } from '~/constants/vuex/auth'
+import { authActions } from '~/store/auth/actions'
 import { ExampleComponent } from '~/components/uncommon/Home'
 export default {
   name: 'Home',

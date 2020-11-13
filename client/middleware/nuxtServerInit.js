@@ -1,4 +1,4 @@
-import { rootActions } from '~/constants/vuex/root'
+import { rootActions } from '~/store/actions'
 /**
  * Run as a middleware, used in nuxt.config.js as the first global middleware
  * therefore, this action will run first

@@ -38,7 +38,7 @@
 
 <script>
 import { config } from './config'
-import { authActions } from '~/constants/vuex/auth'
+import { authActions } from '~/store/auth/actions'
 import { FormWrapper, InputWrapper } from '~/components/common/Templates/Form'
 export default {
   layout: 'unauth',

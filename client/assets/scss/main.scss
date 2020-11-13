@@ -3,11 +3,37 @@
 @import '~/assets/scss/tailwindcss/all.scss';
 // Your global custom style
 
+*{
+  font-family: Google;
+  ::selection {
+    background: var(--color-success);
+    color: #ffffff;
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: white;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-gray-300);
+    transition-duration: 0.5s;
+    border-radius: 4px;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-gray-400);
+  }
+}
+
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {  }
 
 // Large devices (desktops, less than 1200px)
-@media (max-width: 1199.98px) {  }
+@media (max-width: 1199.98px) {}
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) and (max-width: 1199.98px) {  }

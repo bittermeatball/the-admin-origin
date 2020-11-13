@@ -1,5 +1,13 @@
-import { authMutations } from '~/constants/vuex/auth'
-import { rootMutations } from '~/constants/vuex/root'
+import { authMutations } from './auth/mutations'
+import { rootMutations } from './mutations'
+
+/**
+ * Root action module's enum
+ */
+export const rootActions = {
+  NUXT_SERVER_INIT: 'nuxtServerInit',
+}
+
 export default {
   // This will run first when nuxt app init
   // Called manually in middleware in SPA mode
