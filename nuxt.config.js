@@ -144,7 +144,10 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: process.env.API_URL || 'http://localhost:3005',
+    retry: { retries: 3 } // Retry if fail
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/

@@ -22,21 +22,21 @@ export const sidebar = {
           module: 'blog', // Module name for localization
           icon: ['fas', 'newspaper'], // Fontawesome or Element UI icon
           color: 'var(--color-yellow)', // Must be CSS variables
-          route: { name: 'blogs-index' }, // path or route object ({ name: 'route-name',... })
+          route: { name: 'blogs' }, // path or route object ({ name: 'route-name',... })
           permission: ALL, // ALL or match ./auth.js
         },
         {
           module: 'category', // Module name for localization
           icon: ['fas', 'layer-group'], // Fontawesome or Element UI icon
           color: 'var(--color-yellow)', // Must be CSS variables
-          route: { name: 'categories-index' }, // path or route object ({ name: 'route-name',... })
+          route: { name: 'categories' }, // path or route object ({ name: 'route-name',... })
           permission: ALL, // ALL or match ./auth.js
         },
         {
           module: 'tag', // Module name for localization
           icon: ['fas', 'tags'], // Fontawesome or Element UI icon
           color: 'var(--color-yellow)', // Must be CSS variables
-          route: { name: 'tags-index' }, // path or route object ({ name: 'route-name',... })
+          route: { name: 'tags' }, // path or route object ({ name: 'route-name',... })
           permission: ALL, // ALL or match ./auth.js
         },
       ],

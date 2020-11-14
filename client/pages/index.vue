@@ -1,22 +1,5 @@
 <template>
   <el-main>
-    <DataTable
-      :data="[
-        { id: 1, authorId: 1 },
-        { id: 2, authorId: 2 },
-        { id: 3, authorId: 3 },
-        { id: 4, authorId: 1 },
-        { id: 5, authorId: 1 },
-      ]"
-    >
-      <el-table-column type="index" width="50" />
-      <el-table-column :label="$t('posts.index.category')">
-        <template>
-          <!--  -->
-          Ah yes
-        </template>
-      </el-table-column>
-    </DataTable>
     <el-button size="mini" type="warning" @click="$router.push('/secret')">
       {{ $t('home.to-secret') }}
     </el-button>
@@ -69,7 +52,6 @@ import { mapState } from 'vuex'
 import { config } from './config'
 import { authActions } from '~/store/auth/actions'
 import { ExampleComponent } from '~/components/uncommon/Home'
-import { DataTable } from '~/components/common/Templates/Table'
 export default {
   name: 'Home',
   meta: {
@@ -78,7 +60,6 @@ export default {
   middleware: ['auth'],
   components: {
     ExampleComponent,
-    DataTable,
   },
   computed: mapState({
     locale: (state) => state.locale,

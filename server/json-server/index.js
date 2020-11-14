@@ -1,8 +1,8 @@
 const users = require('./users')
-const posts = require('./posts')
+const blogs = require('./blogs')
 module.exports = () => {
   return {
     users,
-    posts,
+    blogs,
   }
 }

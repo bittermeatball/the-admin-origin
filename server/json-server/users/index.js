@@ -1,9 +1,10 @@
 const data = {
-  users: [],
+  data: [],
+  total: 20,
 }
 // Create 10 users
-for (let i = 0; i < 200; i++) {
-  data.users.push({
+for (let i = 0; i < data.total; i++) {
+  data.data.push({
     id: i,
     name: `user-${i}`,
     email: `user-${i}@gmail.com`,
