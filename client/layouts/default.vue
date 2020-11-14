@@ -7,10 +7,7 @@
       class="flex-col default-page-background h-screen overflow-y-scroll"
     >
       <Navbar />
-      <div
-        class="h-full"
-        style="border-radius: 30px 10px 0 0; background-color: #f6f6f6"
-      >
+      <div class="h-full bg-gray-100" style="border-radius: 30px 10px 0 0">
         <!-- el-main -->
         <nuxt class="relative" />
       </div>
