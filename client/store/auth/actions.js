@@ -22,6 +22,7 @@ export default {
     // Faking auth data
     auth = {
       ...form,
+      id: 1,
       role: 'ADMIN',
       accessToken: 'yourAccessTokenFromBackend',
     }

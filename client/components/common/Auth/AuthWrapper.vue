@@ -14,10 +14,30 @@ export default {
         return ['ALL']
       },
     },
+    // eslint-disable-next-line vue/require-default-prop
+    authorId: {
+      type: Number || String,
+      required: false,
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    authId: {
+      type: Number || String,
+      required: false,
+    },
   },
   computed: {
     isAllowed() {
-      return this.allow.includes(this.$store.state.auth.data?.role)
+      // If using 'SELF' permission, authorId and authId (userId in currentUser) are required for comparison
+      if (this.allow.includes('SELF') && !this.authorId && !this.authId) {
+        throw new Error(
+          "Please pass props authorId and authId once you use 'SELF' permission"
+        )
+      }
+      return (
+        this.allow.includes(this.$store.state.auth.data?.role) ||
+        this.allow.includes('ALL') ||
+        this.authorId === this.authId
+      )
     },
   },
   created() {
