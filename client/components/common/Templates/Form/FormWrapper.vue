@@ -1,26 +1,30 @@
 <template>
-  <ValidationObserver v-slot="{ passes }" ref="wrappedFormValidator">
-    <el-form ref="wrappedForm" @submit.native.prevent="passes(submitForm)">
-      <slot></slot>
-    </el-form>
-  </ValidationObserver>
+  <el-form ref="wrappedForm" :model="model" @submit.native.prevent="submitForm">
+    <slot></slot>
+  </el-form>
 </template>
 <script>
-import { ValidationObserver } from 'vee-validate'
 export default {
   name: 'FormWrapper',
-  components: {
-    ValidationObserver,
+  props: {
+    // eslint-disable-next-line vue/require-prop-types
+    model: {
+      required: true,
+    },
   },
   methods: {
     reset() {
-      this.$refs.wrappedForm?.$el?.reset()
-      this.$refs.wrappedForm?.errors?.clear()
-      this.$refs.wrappedFormValidator?.reset()
-      this.$refs.wrappedFormValidator?.$validator?.clean()
+      this.$refs.wrappedForm.resetFields()
+    },
+    clear() {
+      this.$refs.wrappedForm.clearValidate()
     },
     submitForm() {
-      this.$emit('onSubmit')
+      let valid = true
+      this.$refs.wrappedForm.validate((val) => {
+        valid = val
+      })
+      if (valid) this.$emit('onSubmit')
     },
   },
 }

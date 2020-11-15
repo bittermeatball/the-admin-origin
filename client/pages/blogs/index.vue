@@ -1,5 +1,6 @@
 <template>
   <el-main>
+    <FilterBar />
     <DataTable
       v-loading="$fetchState.pending"
       :data="data"
@@ -27,6 +28,7 @@ import { mapState, mapActions } from 'vuex'
 import qs from 'qs'
 import { config } from './config'
 import { DataTable } from '~/components/common/Templates/Table'
+import { FilterBar } from '~/components/uncommon/Blog'
 import { blogMutations as moduleMutations } from '~/store/blog/mutations'
 import { blogActions as moduleActions } from '~/store/blog/actions'
 import dataTableMixin from '~/mixins/components/table'
@@ -51,6 +53,7 @@ export default {
   ],
   components: {
     DataTable,
+    FilterBar,
   },
   mixins: [dataTableMixin],
   data() {
