@@ -1,8 +1,17 @@
 <template>
   <div>
     <FormWrapper :model="form">
-      <InputWrapper rules="required|excluded:HEH;ABC" prop="test">
-        <el-input v-model="form.test" type="test" autocomplete="off"></el-input>
+      <InputWrapper
+        rules="required|excluded:HEH;ABC"
+        prop="test"
+        class="el-default-input"
+      >
+        <el-input
+          v-model="form.test"
+          placeholder="yes"
+          type="test"
+          autocomplete="off"
+        ></el-input>
       </InputWrapper>
     </FormWrapper>
   </div>

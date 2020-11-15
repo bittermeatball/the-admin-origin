@@ -1,0 +1,19 @@
+.el-default-input {
+  border-radius: 10px;
+  .el-input__inner {
+      height: 40px;
+      background: white;
+      border-radius: 10px;
+      border: none;
+      color: var(--color-dark);
+  }
+  .el-input__prefix {
+      color: var(--color-dark);
+  }
+  .el-textarea__inner {
+      background: white;
+      border-radius: 10px;
+      border: none;
+      color: var(--color-dark);
+  }
+}
