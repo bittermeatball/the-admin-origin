@@ -5,16 +5,6 @@
       width: sidebarCollapsed ? `${minWidth}px` : `${maxWidth}px`,
     }"
   >
-    <span
-      class="block absolute default-sidebar-toggle z-20 duration-300"
-      style="top: 30px; right: -30px; transform: translate(50%, -50%)"
-      @click="TOGGLE_SIDEBAR_COLLAPSE()"
-    >
-      <fa
-        :icon="['fas', 'bars']"
-        class="text-gray-200 text-3xl cursor-pointer"
-      />
-    </span>
     <el-aside
       class="duration-300 relative h-full w-full flex flex-col"
       :class="{ 'pl-2': sidebarCollapsed }"
@@ -32,11 +22,8 @@
         <li
           v-for="group in sidebar.groups"
           :key="group.name"
-          class="block duration-300"
+          class="block duration-300 w-full"
           :class="[sidebarCollapsed ? 'p-1' : 'px-5 py-2']"
-          :style="{
-            width: sidebarCollapsed ? '100%' : `${maxWidth}px`,
-          }"
         >
           <span
             v-if="group.name"
@@ -92,8 +79,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
-import { rootMutations } from '~/store/mutations'
+import { mapState } from 'vuex'
 import { sidebar } from '~/constants/config/base/sidebar'
 export default {
   name: 'Sidebar',
@@ -115,12 +101,6 @@ export default {
   computed: {
     ...mapState({
       sidebarCollapsed: (state) => state.options.sidebarCollapsed,
-    }),
-  },
-  methods: {
-    ...mapMutations({
-      // SET_LANG: rootMutations.SET.LANG,
-      TOGGLE_SIDEBAR_COLLAPSE: rootMutations.TOGGLE.SIDEBAR_COLLAPSE,
     }),
   },
 }

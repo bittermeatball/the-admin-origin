@@ -1,6 +1,6 @@
 const data = {
   data: [],
-  total: 100,
+  total: 10,
 }
 // Create 10 users
 for (let i = 0; i < data.total; i++) {

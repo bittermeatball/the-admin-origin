@@ -10,7 +10,7 @@ export default ({ app, store, query }, inject) => {
   // This way we can use it in middleware and pages asyncData/fetch
   app.i18n = new VueI18n({
     locale: store.state.locale,
-    fallbackLocale: 'en',
+    fallbackLocale: 'vi',
     messages: {
       en: localeModules.en,
       vi: localeModules.vi,

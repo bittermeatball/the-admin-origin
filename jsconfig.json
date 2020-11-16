@@ -3,10 +3,15 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./client/*"],
-      "@/*": ["./client/*"],
       "~~/*": ["./client/*"],
-      "@@/*": ["./client/*"]
-    }
+      "~functions/*": ["./client/utils/functions/*"],
+      "~templates/*": ["./client/components/common/Templates/*"],
+      "~dialog/*": ["./client/components/common/Templates/Dialog/*"],
+      "~form/*": ["./client/components/common/Templates/Form/*"],
+      "~input/*": ["./client/components/common/Templates/Input/*"],
+      "~table/*": ["./client/components/common/Templates/Table*"],
+    },
   },
+  "include": ["./client/**/*"],
   "exclude": ["node_modules", ".nuxt", "dist"]
 }

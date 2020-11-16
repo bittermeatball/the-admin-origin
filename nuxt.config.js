@@ -1,4 +1,5 @@
 /* eslint-disable */
+const path = require('path')
 require('dotenv').config() // Using .env in nuxt.config.js requires this
 export default {
   /*
@@ -164,6 +165,7 @@ export default {
       ]
     },
     extend(config, ctx) {
+      const alias = config.resolve.alias = config.resolve.alias || {}
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
@@ -173,12 +175,20 @@ export default {
           exclude: /(node_modules)/,
           options: {
             fix: true
-          }
+          },
         })
       }
       config.node = {
         fs: 'empty',
       }
+      alias['~functions'] = path.resolve(__dirname, './client/utils/functions')
+      // Template paths
+      const templatePath = './client/components/common/Templates'
+      alias['~templates'] = path.resolve(__dirname, templatePath)
+      alias['~dialog'] = path.resolve(__dirname, templatePath + '/Dialog')
+      alias['~form'] = path.resolve(__dirname, templatePath + '/Form')
+      alias['~input'] = path.resolve(__dirname, templatePath + '/Input')
+      alias['~table'] = path.resolve(__dirname, templatePath + '/Table')
     }
   },
   router: {

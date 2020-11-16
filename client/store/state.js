@@ -2,7 +2,7 @@
 export default () => ({
   serverReady: false,
   locales: ['en', 'vi'],
-  locale: 'en',
+  locale: 'vi',
   message: 'Hello from state',
   hasNotifications: false,
   options: {

@@ -61,6 +61,11 @@ export default {
   components: {
     ExampleComponent,
   },
+  data() {
+    return {
+      file: null,
+    }
+  },
   computed: mapState({
     locale: (state) => state.locale,
   }),
