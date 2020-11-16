@@ -90,7 +90,6 @@ export default {
     // Plugins
     '~/plugins/element-ui',
     '~/plugins/i18n.js',
-    '~/plugins/vee-validate.js',
     // Utilities
     '~/utils/index.js',
     // '~/utils/directives', // Vue directives
@@ -153,7 +152,9 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    transpile: [/^element-ui/, 'vee-validate'],
+    transpile: [
+      /^element-ui/,
+    ],
     /*
      ** You can extend webpack config here
      */
