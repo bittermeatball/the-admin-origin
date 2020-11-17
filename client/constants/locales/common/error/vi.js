@@ -39,4 +39,5 @@ export default {
     'Bạn không được thay đổi nội dung của người khác',
   FILE_UPLOAD_FAILED: 'Tải tệp tin thất bại',
   FILE_DELETE_FAILED: 'Xóa tệp tin thất bại',
+  MAX_FILE_SIZE: 'File quá lớn, max:',
 }

@@ -6,7 +6,7 @@
     <p>This page only available in dev mode</p>
     <div>
       <!-- Your test code here -->
-      <FileUploader />
+      <FileUploader v-model="file" :multiple="true" />
       <!-- Just don't ruin the whole project, LOL :D -->
     </div>
   </el-main>
