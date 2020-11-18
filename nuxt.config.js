@@ -144,6 +144,11 @@ export default {
     baseURL: process.env.API_URL || 'http://localhost:3005',
     retry: { retries: 3 } // Retry if fail
   },
+  /**
+   * Tailwindcss module configuration
+   * See https://tailwindcss.nuxtjs.org/options
+   */
+  tailwindcss: {},
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/

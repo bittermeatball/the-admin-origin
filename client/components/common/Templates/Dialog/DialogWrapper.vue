@@ -5,7 +5,7 @@
     :title="title"
     :append-to-body="true"
     :fullscreen="fullscreen"
-    :destroy-on-close="true"
+    :destroy-on-close="destroyOnClose"
   >
     <slot />
   </el-dialog>
@@ -24,6 +24,10 @@ export default {
     fullscreen: {
       type: Boolean,
       default: false,
+    },
+    destroyOnClose: {
+      type: Boolean,
+      default: true,
     },
   },
   data() {
