@@ -23,5 +23,5 @@ module.exports = {
     '"Courier New"',
     'monospace',
   ],
-  mont: ['Montserrat'],
+  open: ['Open Sans'],
 }
